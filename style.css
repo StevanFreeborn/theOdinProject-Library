@@ -37,7 +37,7 @@ header {
   justify-content: space-between;
   align-items: center;
   max-width: 996px;
-  padding: 2rem 1rem;
+  padding: 1rem;
   margin: 0 auto;
 }
 
@@ -52,6 +52,11 @@ header {
 
 .add-btn:hover {
   background-color: #e2e8f0;
+}
+
+#books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 footer {
