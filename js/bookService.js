@@ -50,6 +50,6 @@ export function deleteBookById({ bookId, books }) {
   const updatedBooks = books.filter(
     book => book.id !== bookId
   );
-  updatedBooks(updatedBooks);
+  updateBooks(updatedBooks);
   return updatedBooks;
 }
