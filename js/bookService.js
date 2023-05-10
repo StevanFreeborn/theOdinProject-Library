@@ -1,12 +1,16 @@
 import { Book } from './book.js';
 const KEY = 'library-books';
 
+/**
+ * Uses the given array of books to update the list of books in local storage.
+ * @param {Array<Book>} books
+ */
 function updateBooks(books) {
   localStorage.setItem(KEY, JSON.stringify(books));
 }
 
 /**
- * Retrieve an array of books.
+ * Retrieve an array of books from local storage or just return an empty array if none found.
  * @returns {Array<Book>} An array of books.
  */
 export function getBooks() {
