@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', e => {
   document
     .getElementById('add-book-button')
     .addEventListener('click', e => {
+      // TODO: Update to allow adding book dynamically
       const book = new Book({
         title: 'Hello World',
         author: 'Test',
