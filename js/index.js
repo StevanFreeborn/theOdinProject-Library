@@ -44,18 +44,21 @@ function renderBooks({ booksContainer, books }) {
         name="title"
         type="text" 
         value="${book.title}" 
+        maxLength="150"
       />
       <input 
         ${isBeingEdited ? '' : 'readonly'}
         name="author"
         type="text" 
         value="${book.author}" 
+        maxLength="150"
       />
       <input 
         ${isBeingEdited ? '' : 'readonly'}
         name="pages"
         type="number" 
-        value="${book.pages}" 
+        value="${book.pages}"
+        min="1"
       />
       <div>
         <input
@@ -118,7 +121,7 @@ function handleAddClick(e) {
   const book = new Book({
     title: '',
     author: '',
-    pages: 0,
+    pages: 1,
     read: false,
   });
 
