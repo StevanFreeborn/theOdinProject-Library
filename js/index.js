@@ -118,6 +118,7 @@ function handleAddClick(e) {
   const booksContainer = document.getElementById(
     'books-container'
   );
+
   const book = new Book({
     title: '',
     author: '',
