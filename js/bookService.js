@@ -1,6 +1,10 @@
 import { Book } from './book.js';
 const KEY = 'library-books';
 
+function updateBooks(books) {
+  localStorage.setItem(KEY, JSON.stringify(books));
+}
+
 /**
  * Retrieve an array of books.
  * @returns {Array<Book>} An array of books.
@@ -13,7 +17,7 @@ export function getBooks() {
   }
 
   books = [];
-  localStorage.setItem(KEY, JSON.stringify(books));
+  updateBooks(books);
 
   return books;
 }
@@ -26,7 +30,7 @@ export function getBooks() {
  */
 export function addBook({ book, books }) {
   const newBooks = [...books, book];
-  localStorage.setItem(KEY, JSON.stringify(newBooks));
+  updateBooks(newBooks);
   return newBooks;
 }
 
@@ -34,7 +38,7 @@ export function updateBook({ updatedBook, books }) {
   const updatedBooks = books.map(book =>
     book.id === updatedBook.id ? updatedBook : book
   );
-  localStorage.setItem(KEY, JSON.stringify(updatedBooks));
+  updateBooks(updatedBooks);
   return updatedBooks;
 }
 
@@ -42,6 +46,6 @@ export function deleteBookById({ bookId, books }) {
   const updatedBooks = books.filter(
     book => book.id !== bookId
   );
-  localStorage.setItem(KEY, JSON.stringify(updatedBooks));
+  updatedBooks(updatedBooks);
   return updatedBooks;
 }
