@@ -1,12 +1,12 @@
 import { Book } from './book.js';
-const KEY = 'library-books';
+const BOOKS_KEY = 'library-books';
 
 /**
  * Uses the given array of books to update the list of books in local storage.
  * @param {Array<Book>} books
  */
 function updateBooks(books) {
-  localStorage.setItem(KEY, JSON.stringify(books));
+  localStorage.setItem(BOOKS_KEY, JSON.stringify(books));
 }
 
 /**
@@ -14,7 +14,7 @@ function updateBooks(books) {
  * @returns {Array<Book>} An array of books.
  */
 export function getBooks() {
-  let books = localStorage.getItem(KEY);
+  let books = localStorage.getItem(BOOKS_KEY);
 
   if (books !== null) {
     return JSON.parse(books);
@@ -38,6 +38,12 @@ export function addBook({ book, books }) {
   return newBooks;
 }
 
+/**
+ * Update a book with the updated book given in the array of books given.
+ * @param {Book} updatedBook - The updated book.
+ * @param {Array<Book>} books - The array of books that has the book that needs to be updated.
+ * @returns {Array<Book>} A new array of books with the updated book.
+ */
 export function updateBook({ updatedBook, books }) {
   const updatedBooks = books.map(book =>
     book.id === updatedBook.id ? updatedBook : book
@@ -46,6 +52,12 @@ export function updateBook({ updatedBook, books }) {
   return updatedBooks;
 }
 
+/**
+ * Delete a book from the given array based on the id given.
+ * @param {string} bookId - The id of the book that needs to be deleted.
+ * @param {Array<Book>} books - The array of books that has the book that needs to be deleted.
+ * @returns {Array<Book>} A new array of books without the deleted book.
+ */
 export function deleteBookById({ bookId, books }) {
   const updatedBooks = books.filter(
     book => book.id !== bookId
