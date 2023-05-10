@@ -13,6 +13,7 @@ export function Book({ title, author, pages, read }) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.editing = true;
   this.info = function () {
     return `${title}, ${pages} pages, ${
       read === true ? 'read' : 'not read yet'
