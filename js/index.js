@@ -39,12 +39,13 @@ function renderBooks({ booksContainer, books }) {
     const isBeingEdited = book.editing === true;
 
     bookFormElement.innerHTML = `
-      <input 
+      <input
         ${isBeingEdited ? '' : 'readonly'}
         name="title"
         type="text" 
         value="${book.title}" 
         maxLength="150"
+        class="book-title"
       />
       <input 
         ${isBeingEdited ? '' : 'readonly'}
@@ -52,6 +53,7 @@ function renderBooks({ booksContainer, books }) {
         type="text" 
         value="${book.author}" 
         maxLength="150"
+        class="book-detail"
       />
       <input 
         ${isBeingEdited ? '' : 'readonly'}
@@ -59,6 +61,7 @@ function renderBooks({ booksContainer, books }) {
         type="number" 
         value="${book.pages}"
         min="1"
+        class="book-detail"
       />
       <div>
         <input
@@ -68,6 +71,7 @@ function renderBooks({ booksContainer, books }) {
           type="checkbox" 
           value="${book.read}"
           ${book.read ? 'checked' : ''}
+          class="book-detail"
         />
         <label for="${book.id}-read">Read</label>
       </div>

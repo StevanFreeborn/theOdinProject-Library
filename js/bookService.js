@@ -22,7 +22,7 @@ export function getBooks() {
   }
 
   books = [];
-  updateBooks(books);
+  updateBooks({ books });
 
   return books;
 }
