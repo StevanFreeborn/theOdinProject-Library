@@ -39,41 +39,49 @@ function renderBooks({ booksContainer, books }) {
     const isBeingEdited = book.editing === true;
 
     bookFormElement.innerHTML = `
-      <input
-        ${isBeingEdited ? '' : 'readonly'}
-        name="title"
-        type="text" 
-        value="${book.title}" 
-        maxLength="150"
-        class="book-title"
-      />
-      <input 
-        ${isBeingEdited ? '' : 'readonly'}
-        name="author"
-        type="text" 
-        value="${book.author}" 
-        maxLength="150"
-        class="book-detail"
-      />
-      <input 
-        ${isBeingEdited ? '' : 'readonly'}
-        name="pages"
-        type="number" 
-        value="${book.pages}"
-        min="1"
-        class="book-detail"
-      />
       <div>
         <input
-          ${isBeingEdited ? '' : 'disabled'} 
-          id="${book.id}-read" 
-          name="read" 
-          type="checkbox" 
-          value="${book.read}"
-          ${book.read ? 'checked' : ''}
-          class="book-detail"
+          ${isBeingEdited ? '' : 'readonly'}
+          name="title"
+          type="text" 
+          value="${book.title}" 
+          maxLength="150"
+          class="book-title"
+          placeholder="Title"
+          required
         />
-        <label for="${book.id}-read">Read</label>
+        <input 
+          ${isBeingEdited ? '' : 'readonly'}
+          name="author"
+          type="text" 
+          value="${book.author}" 
+          maxLength="150"
+          class="book-detail"
+          placeholder="Author"
+          required
+        />
+        <input 
+          ${isBeingEdited ? '' : 'readonly'}
+          name="pages"
+          type="number" 
+          value="${book.pages}"
+          min="1"
+          class="book-detail"
+          placeholder="Total Pages"
+          required
+        />
+        <div>
+          <input
+            ${isBeingEdited ? '' : 'disabled'} 
+            id="${book.id}-read" 
+            name="read" 
+            type="checkbox" 
+            value="${book.read}"
+            ${book.read ? 'checked' : ''}
+            class="book-detail"
+          />
+          <label for="${book.id}-read">Read</label>
+        </div>
       </div>
       <div class="book-buttons">
         <button 
@@ -124,8 +132,8 @@ function handleAddClick(e) {
   );
 
   const book = new Book({
-    title: '',
-    author: '',
+    title: 'A Title',
+    author: 'An Author',
     pages: 1,
     read: false,
   });

@@ -67,6 +67,7 @@ header {
 .book {
   display: flex;
   flex-direction: column;
+  height: 100%;
   width: 100%;
   padding: 1rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -75,7 +76,14 @@ header {
 .book-form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.book-form>div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .book-title {
@@ -97,7 +105,6 @@ header {
   border-radius: 5px;
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
-  ;
 }
 
 .delete-button {
@@ -136,16 +143,19 @@ footer>a {
 }
 
 input:read-only {
-  border: none;
   outline: none;
+  border: 1px solid transparent
 }
 
 input {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   max-width: 100%;
   border-radius: 5px;
   border: 1px solid black;
 }
 
 input:not(:read-only) {
-  padding: 0.25rem 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
