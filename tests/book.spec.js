@@ -13,6 +13,7 @@ describe('Book', () => {
     expect(book.author).toBe('Paulo Coelho');
     expect(book.pages).toBe(208);
     expect(book.read).toBe(false);
+    expect(book.id).toBeDefined();
   });
 
   test('info() returns the correct string when book has been read', () => {
