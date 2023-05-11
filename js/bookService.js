@@ -1,12 +1,12 @@
 import { Book } from './book.js';
-const BOOKS_KEY = 'library-books';
+import { BOOKS_KEY } from './constants.js';
 
 /**
  * Uses the given array of books to update the list of books in local storage.
  * @param {object} params - The function parameters.
  * @param {Array<Book>} params.books - The array of books to put in local storage.
  */
-function updateBooks({ books }) {
+export function updateBooks({ books }) {
   localStorage.setItem(BOOKS_KEY, JSON.stringify(books));
 }
 
