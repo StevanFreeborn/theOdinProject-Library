@@ -31,6 +31,9 @@ header {
   -webkit-box-shadow: var(--nav-box-shadow);
   -moz-box-shadow: var(--nav-box-shadow);
   box-shadow: var(--nav-box-shadow);
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
 }
 
 .header-container {
