@@ -24,12 +24,12 @@ window.addEventListener('DOMContentLoaded', e => {
  * @param {HTMLElement} data.booksContainer - The HTML element where the book list will be rendered.
  * @param {Array<Book>} data.books - An array of book objects.
  */
-function renderBooks({ booksContainer, books }) {
+export function renderBooks({ booksContainer, books }) {
   booksContainer.innerHTML = '';
   books.forEach(book => {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
-    bookElement.id = book.id;
+    bookElement.id = `book-${book.id}`;
 
     const bookFormElement = document.createElement('form');
     bookFormElement.setAttribute('data-book-id', book.id);
@@ -143,7 +143,7 @@ function handleAddClick(e) {
   renderBooks({ booksContainer, books: updatedBooks });
 }
 
-function handleEditClick(e) {
+export function handleEditClick(e) {
   const booksContainer = document.getElementById(
     'books-container'
   );
